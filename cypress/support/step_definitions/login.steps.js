@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('User visits the login page', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+    cy.visit('/web/index.php/auth/login');
 });
 
 When('User enters valid credentials', () => {
@@ -13,7 +13,7 @@ When('User enters valid credentials', () => {
 });
   
 Then('User should be redirected to the dashboard', () => {
-    cy.url().should('include', 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
+    cy.url().should('include', '/web/index.php/dashboard/index');
 });
 
 When ('User enters invalid credentials', () => {

@@ -16,5 +16,6 @@ module.exports = defineConfig({
     specPattern: [
       "**/*.feature",
     ],
+    baseUrl: "https://opensource-demo.orangehrmlive.com",
   },
 })
