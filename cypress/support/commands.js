@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+require('cypress-xpath');
+
 Cypress.Commands.add('login', (username, password) => { 
     cy.visit('/web/index.php/auth/login');
 
@@ -41,16 +43,10 @@ Cypress.Commands.add('login', (username, password) => {
 });
 
 
-Cypress.Commands.add('logout', () => {
-    cy.get('.oxd-userdropdown-tab').should('be.visible').then(() => {
-        // Click on the 'Welcome' dropdown
-        cy.get('.oxd-userdropdown-tab').click();
-        
-         // Wait for the dropdown to open and ensure the Logout link is visible
-        cy.get('.oxd-dropdown-menu', { timeout: 10000 }).should('be.visible');
+// Cypress.Commands.add('navigateToModule', (moduleName) => {
+//     cy.xpath('//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a')
+//             .should('be.visible') // Ensure it's visible
+//             .click();
 
-        // Click the Logout link inside the dropdown
-        cy.get('.oxd-dropdown-menu li').contains('Logout').should('be.visible').click();
-
-    });
-});
+    
+// });
