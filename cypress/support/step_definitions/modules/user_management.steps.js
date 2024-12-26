@@ -70,3 +70,35 @@ Then('User should see the success message', () => {
         .contains('p', 'Successfully Saved')
         .should('be.visible');
 });
+
+
+
+When('User deletes the user with username {string}', (username) => {
+    // Search for the user
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input').type(username);
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').click();
+    cy.wait(2000);
+
+    // checking the user is available
+    cy.get('.oxd-table')
+        .contains('div', username)
+        .should('be.visible')
+        .click();
+    cy.wait(1000);
+
+    // Click the delete button
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[6]/div/button[1]')
+        .should('be.visible')
+        .click();
+
+    // Confirm the deletion
+    cy.xpath('/html/body/div/div[3]/div/div/div/div[3]/button[2]')
+        .should('be.visible')
+        .click();    
+});
+
+Then('User should see the success message for deletetion', () => {
+    cy.get('#oxd-toaster_1')
+        .contains('p', 'Successfully Deleted')
+        .should('be.visible');
+});
