@@ -64,3 +64,9 @@ When('User creates a new user', function(dataTable) {
 
     
 });
+
+Then('User should see the success message', () => {
+    cy.get('#oxd-toaster_1')
+        .contains('p', 'Successfully Saved')
+        .should('be.visible');
+});

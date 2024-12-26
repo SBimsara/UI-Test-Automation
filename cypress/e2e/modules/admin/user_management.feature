@@ -5,5 +5,5 @@ Feature: User Management
     And User navigates to the Admin module
     When User creates a new user
     | Username    | Password        | Role   | Employee Name                |
-    | user1       | a123456         | ESS    | Timothy Lewis Amiano         |
-    Then User should see the new user in the user list
+    | user5       | a123456         | ESS    | Timothy Lewis Amiano         |
+    Then User should see the success message
