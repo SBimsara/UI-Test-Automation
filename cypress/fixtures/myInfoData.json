@@ -1,0 +1,14 @@
+{
+    "PersonalDetails": {
+      "fields": {
+        "firstName": "#firstName",
+        "lastName": "#lastName"
+      },
+      "buttons": {
+        "save": "#btnSave"
+      },
+      "messages": {
+        "success": ".success-message"
+      }
+    }
+}
