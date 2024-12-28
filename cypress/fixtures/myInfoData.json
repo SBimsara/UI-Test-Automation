@@ -1,14 +1,28 @@
 {
     "PersonalDetails": {
-      "fields": {
-        "firstName": "#firstName",
-        "lastName": "#lastName"
-      },
-      "buttons": {
-        "save": "#btnSave"
-      },
-      "messages": {
-        "success": ".success-message"
-      }
+        "fields": {
+            "firstName": "#firstName",
+            "lastName": "#lastName"
+        },
+        "buttons": {
+            "save": "#btnSave"
+        },
+        "messages": {
+            "success": ".success-message"
+        }
+    },
+    "EmergencyContact": {
+        "buttons": {
+            "add": "#btnAdd",
+            "save": "#btnSave"
+        },
+        "fields": {
+            "name": "#emgcontacts_name",
+            "relationship": "#emgcontacts_relationship",
+            "mobile": "#emgcontacts_mobile"
+        },
+        "messages": {
+            "error": ".validation-error"
+        }
     }
 }
