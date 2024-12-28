@@ -8,14 +8,14 @@ Given('User is logged in', () => {
 Given('delete the leave list', () => {
   
   cy.visit('/web/index.php/leave/viewMyLeaveList');
-  //set from date
 
+  //set from date
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input')
     .first().clear().type('2024-01-01').click(); 
 
   //set to date
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/input')
-  .last().clear().type('2026-31-12').click(); 
+  .last().clear().type('2024-31-12').click(); 
 
   //remove rejected
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').click();
@@ -25,7 +25,6 @@ Given('delete the leave list', () => {
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').click();
   //remove Taken
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').click();
-
 
   //Click the Search button
   cy.get('[data-v-10d463b7]').contains('Search').click(); 
@@ -43,9 +42,7 @@ Given('delete the leave list', () => {
       cy.xpath('//*[@id="app"]/div[3]/div/div/div/div[3]/button[2]').click();
     }
   });
-
 });
-
 
 
 Given('the user navigates to the Apply Leave page', () => {
@@ -84,6 +81,4 @@ When('the user clicks the Apply button', () => {
 
 Then('the leave request should be submitted successfully', () => {
   cy.contains('Success').should('be.visible');
-
-  
 });
