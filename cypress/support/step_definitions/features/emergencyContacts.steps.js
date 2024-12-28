@@ -1,18 +1,21 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
 const data = require('../../../fixtures/myInfoData.json').EmergencyContact;
 
+
 When('Admin clicks the {string} button', (buttonName) => {
-  const buttonSelectors = {
-    'Add': data.buttons.add,
-    'Save': data.buttons.save,
-  };
-  
-  if (!buttonSelectors[buttonName]) {
-    throw new Error(`Button "${buttonName}" is not defined in selectors`);
-  }
-  
-  cy.get(buttonSelectors[buttonName]).should('be.visible').click();
-});
+    if (buttonName === 'Add') {
+      // Select the first "Add" button on the page
+      cy.get('.oxd-button:contains("Add")').first().click();
+    } else if (buttonName === 'Save') {
+      cy.get('#btnSave').click();
+    }
+
+    if (!buttonSelectors[buttonName]) {
+        throw new Error(`Button "${buttonName}" is not defined in selectors`);
+      }
+      
+      cy.get(buttonSelectors[buttonName]).should('be.visible').click();
+  });
 
 When('Admin leaves the {string}, {string}, and {string} fields empty', (nameField, relationshipField, mobileField) => {
   const fieldSelectors = {
