@@ -1,4 +1,4 @@
-Feature: Emergency Contact Page - Required Fields Validation
+Feature: Verify Required Fields Validation (Name, Relationship)
 
   Background:
     Given Admin is logged into the system

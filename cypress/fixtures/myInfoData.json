@@ -11,18 +11,7 @@
             "success": ".success-message"
         }
     },
-    "Attachments": {
-        "fields": {
-            "uploadInput": "#attachmentInput",
-            "fileName": ".attachment-file-name"
-        },
-        "buttons": {
-            "upload": "#btnUpload"
-        },
-        "messages": {
-            "success": ".upload-success-message"
-        }
-    },
+    
     "EmergencyContact": {
         "buttons": {
             "add": ".oxd-button",

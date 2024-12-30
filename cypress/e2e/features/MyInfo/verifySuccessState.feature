@@ -1,4 +1,4 @@
-Feature: Personal Details Page
+Feature: Verify success state after saving data
 
   Background:
     Given Admin is logged into the system
