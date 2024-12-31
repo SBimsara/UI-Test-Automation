@@ -42,18 +42,3 @@ Then('the updated details should be reflected on the page', () => {
   cy.get(data.fields.firstName).should('have.value', 'John');
   cy.get(data.fields.lastName).should('have.value', 'Doe');
 });
-
-
-When('the admin navigates to the "Attachments" tab', () => {
-  cy.get('a[href="#attachments"]').should('be.visible').click();
-});
-
-When('the admin uploads a file with the name {string}', (fileName) => {
-  cy.get(attachmentsData.fields.uploadInput)
-    .should('be.visible')
-    .attachFile(fileName);
-});
-
-Then('the uploaded file {string} should appear in the attachments list', (fileName) => {
-  cy.get(attachmentsData.fields.fileName).should('contain.text', fileName);
-});

@@ -12,18 +12,16 @@
         }
     },
     
-    "EmergencyContact": {
-        "buttons": {
-            "add": ".oxd-button",
-            "save": "#btnSave"
-        },
-        "fields": {
-            "name": "#emgcontacts_name",
-            "relationship": "#emgcontacts_relationship",
-            "mobile": "#emgcontacts_mobile"
-        },
-        "messages": {
-            "error": ".validation-error"
-        }
+   "PersonalDetailsRequired": {
+    "fields": {
+      "firstName": "input[name='firstName']",
+      "lastName": "input[name='lastName']"
+    },
+    "buttons": {
+      "save": "button[type='submit']"
+    },
+    "messages": {
+      "required": ".oxd-input-field-error-message"
     }
+  }
 }

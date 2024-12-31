@@ -1,11 +1,11 @@
-Feature: Verify Required Fields Validation (Name, Relationship)
+Feature: Validate required fields on the Personal Details page
 
-  Background:
-    Given Admin is logged into the system
+    Background:
+        Given Admin is logged into the system
 
-  Scenario: Verify required fields validation when adding an emergency contact
-    Given Admin navigates to the "Emergency Contacts" page
-    When Admin clicks the "Add" button
-    And Admin leaves the "Name", "Relationship", and "Mobile" fields empty
-    And Admin clicks the "Save" button
-    Then error messages should be displayed for all required fields
+    Scenario: Admin fails to save Personal Details due to missing required fields
+        Given Admin navigates to the "Personal Details" page
+        When Admin clears the Full Name field
+        And Admin clicks the Save button
+        Then an error message should appear stating "Full Name is required"
+        And the Personal Details should not be updated

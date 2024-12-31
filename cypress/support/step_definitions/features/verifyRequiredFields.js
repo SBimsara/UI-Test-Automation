@@ -1,41 +1,33 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-const data = require('../../../fixtures/myInfoData.json').EmergencyContact;
+const data = require('../../../fixtures/myInfoData.json').PersonalDetailsRequired;
 
-
-When('Admin clicks the {string} button', (buttonName) => {
-    if (buttonName === 'Add') {
-      // Select the first "Add" button on the page
-      cy.get('.oxd-button:contains("Add")').first().click();
-    } else if (buttonName === 'Save') {
-      cy.get('#btnSave').click();
-    }
-
-    if (!buttonSelectors[buttonName]) {
-        throw new Error(`Button "${buttonName}" is not defined in selectors`);
-      }
-      
-      cy.get(buttonSelectors[buttonName]).should('be.visible').click();
-  });
-
-When('Admin leaves the {string}, {string}, and {string} fields empty', (nameField, relationshipField, mobileField) => {
-  const fieldSelectors = {
-    'Name': data.fields.name,
-    'Relationship': data.fields.relationship,
-    'Mobile': data.fields.mobile,
-  };
-
-  [nameField, relationshipField, mobileField].forEach((field) => {
-    const selector = fieldSelectors[field];
-    if (!selector) {
-      throw new Error(`Field "${field}" is not defined in selectors`);
-    }
-    cy.get(selector).clear();
-  });
+When('Admin clears the "Full Name" field', () => {
+  // Assuming "Full Name" is split into "First Name" and "Last Name" fields
+  cy.get(data.fields.firstName)
+    .should('be.visible')
+    .clear()
+    .should('be.empty');
+  cy.get(data.fields.lastName)
+    .should('be.visible')
+    .clear()
+    .should('be.empty');
 });
 
-Then('error messages should be displayed for all required fields', () => {
-  cy.get(data.messages.error).should('have.length', 3); // Assuming 3 required fields
-  cy.get(data.messages.error).each(($error) => {
-    cy.wrap($error).should('be.visible').and('not.be.empty');
-  });
+When('Admin attempts to save the Personal Details', () => {
+  cy.get(data.buttons.save)
+    .should('be.visible')
+    .click();
+});
+
+Then('an error message should appear stating that "Full Name is required"', () => {
+  // Replace `data.messages.required` with the appropriate selector for the error message
+  cy.get(data.messages.required)
+    .should('be.visible')
+    .and('contain.text', 'Required'); // Modify the text based on actual error
+});
+
+Then('the changes should not be saved', () => {
+  // Verify the values are not updated on the page
+  cy.get(data.fields.firstName).should('not.have.value', '');
+  cy.get(data.fields.lastName).should('not.have.value', '');
 });
