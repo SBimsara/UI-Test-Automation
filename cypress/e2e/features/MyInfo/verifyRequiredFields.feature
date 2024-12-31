@@ -1,11 +1,11 @@
-Feature: Validate required fields on the Personal Details page
+Feature: Verify required fields on the Personal Details page
 
     Background:
         Given Admin is logged into the system
-
-    Scenario: Admin fails to save Personal Details due to missing required fields
         Given Admin navigates to the "Personal Details" page
-        When Admin clears the Full Name field
-        And Admin clicks the Save button
-        Then an error message should appear stating "Full Name is required"
-        And the Personal Details should not be updated
+        
+    Scenario: User fails to update personal details due to missing required fields (Full Name)
+        When the user leaves the Full Name field blank
+        And the user attempts to save the changes
+        Then an error message should appear stating that Full Name is mandatory
+        And the changes should not be saved

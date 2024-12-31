@@ -1,14 +1,11 @@
-Feature: Verify success state after saving data
+Feature: Update Personal Details
 
   Background:
     Given Admin is logged into the system
-
-  Scenario: Verify success state when editing personal details
     Given Admin navigates to the "Personal Details" page
-    When the admin updates the following fields:
-      | Field         | New Value     |
-      | First Name    | John          |
-      | Last Name     | Doe           |
-    And the admin clicks the "Save" button
-    Then a success message "Successfully Saved" should be displayed
-    And the updated details should be reflected on the page
+
+  Scenario: Admin updates personal details successfully
+    When the Admin edits the First Name to "John"
+    And the Admin edits the Last Name to "Doe"
+    And the Admin clicks the Save button
+    Then the changes should be saved successfully
