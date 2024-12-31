@@ -1,0 +1,6 @@
+{
+    "downloadsFolder": "cypress/downloads",
+    "chromeWebSecurity": false,
+    "video": false
+  }
+  

@@ -15,4 +15,5 @@ Then('an error message should appear stating that Full Name is mandatory', () =>
 });
 
 Then('the changes should not be saved', () => {
-  cy.url().should('include', '/viewPersonalDetails'); 
+  cy.url().should('include', '/viewPersonalDetails');
+});
