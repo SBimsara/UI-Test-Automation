@@ -1,0 +1,28 @@
+{
+    "PersonalDetails": {
+        "fields": {
+            "firstName": "#firstName",
+            "lastName": "#lastName"
+        },
+        "buttons": {
+            "save": "#btnSave"
+        },
+        "messages": {
+            "success": ".success-message"
+        }
+    },
+    
+   "PersonalDetailsRequired": {
+    "fields": {
+      "firstName": "input[name='firstName']",
+      "lastName": "input[name='lastName']"
+    },
+    "buttons": {
+      "save": "button[type='submit']"
+    },
+    "messages": {
+      "required": ".oxd-input-field-error-message"
+    }
+  }
+  
+}

@@ -48,6 +48,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       return false; 
     }
   });
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // Ignore the AxiosError caused by "Request aborted"
+    if (err.message.includes('Request aborted')) {
+        return false; // Prevent Cypress from failing the test
+    }
+    return true; // Let Cypress fail for other errors
+});
+
 
 // Cypress.Commands.add('navigateToModule', (moduleName) => {
 //     cy.xpath('//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a')
