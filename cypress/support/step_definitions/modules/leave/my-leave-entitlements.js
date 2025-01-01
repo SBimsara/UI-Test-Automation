@@ -4,6 +4,13 @@ Given('User is logged in to search leave entitlements', () => {
   cy.login(); 
 });
 
+Given('add entitlement in-order maintain the flow', () => {
+  cy.navigateToLeaveEntitlementPage();
+  cy.searchEmployee();
+  cy.addEntitlementDetails('CAN - FMLA', '2025-01-01 - 2025-31-12', 30);
+  cy.submitEntitlement();
+});
+
 When('the user visits the Apply Leave page and applies leave', () => {
   cy.visit('/web/index.php/leave/applyLeave');
   cy.get('.oxd-select-wrapper').click();  

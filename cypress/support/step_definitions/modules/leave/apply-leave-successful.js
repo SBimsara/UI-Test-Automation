@@ -1,6 +1,8 @@
 
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
+let firstName="";
+
 Given('User is logged in', () => {
     cy.login();
 });
@@ -44,13 +46,20 @@ Given('delete the leave list', () => {
   });
 });
 
+Given('add entitlement', () => {
+  cy.navigateToLeaveEntitlementPage();
+  cy.searchEmployee();
+  cy.addEntitlementDetails('CAN - FMLA', '2025-01-01 - 2025-31-12', 30);
+  cy.submitEntitlement();
+});
+
 
 Given('the user navigates to the Apply Leave page', () => {
   cy.visit('/web/index.php/leave/applyLeave');
 });
 
 
-When('the user selects {string} from the Leave Type dropdown', (leaveType) => {
+When('the user selects Leave from the Leave Type dropdown', () => {
   cy.get('.oxd-select-wrapper').click();  
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[2]').click();
   cy.get('.oxd-select-text-input').should('not.be.empty');

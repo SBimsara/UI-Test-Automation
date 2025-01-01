@@ -4,6 +4,13 @@ Given('User is logged in for handling overlapping leave dates scenario', () => {
     cy.login();
 });
 
+Given('add entitlement for handling overlapping leave dates scenario', () => {
+    cy.navigateToLeaveEntitlementPage();
+    cy.searchEmployee();
+    cy.addEntitlementDetails('CAN - FMLA', '2025-01-01 - 2025-31-12', 30);
+    cy.submitEntitlement();
+  });
+
 Given('the user is on the Apply Leave page, for overlapping leave dates', () => {
     cy.visit('/web/index.php/leave/applyLeave');
 });

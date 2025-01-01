@@ -4,6 +4,12 @@ Given('User is logged in to view the leave list', () => {
   cy.login(); 
 });
 
+Given('add entitlement add entitlement in order to View applied leave records in the My Leave List', () => {
+  cy.navigateToLeaveEntitlementPage();
+  cy.searchEmployee();
+  cy.addEntitlementDetails('CAN - FMLA', '2025-01-01 - 2025-31-12', 30);
+  cy.submitEntitlement();
+});
 
 Given('add some leave records', () => {
     cy.visit('/web/index.php/leave/applyLeave');

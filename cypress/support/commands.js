@@ -56,3 +56,54 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
     
 // });
+
+
+//Add entitlement
+Cypress.Commands.add('navigateToLeaveEntitlementPage', () => {
+    cy.visit('web/index.php/leave/viewLeaveList');
+    cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]')
+      .should('be.visible')
+      .click();
+  
+    cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]/ul/li[1]/a')
+      .should('be.visible')
+      .click();
+  });
+  
+  Cypress.Commands.add('searchEmployee', () => {
+    cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li/span/p')
+      .invoke('text')
+      .then((text) => {
+        const firstName = text.split(' ')[0];
+        cy.log('First Name: ' + firstName);
+  
+        cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div/div/div[2]/div')
+          .should('be.visible')
+          .click()
+          .type(firstName);
+  
+        cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div/div/div[2]/div')
+          .should('be.visible')
+          .contains(firstName)
+          .click();
+      });
+  });
+
+  Cypress.Commands.add('addEntitlementDetails', (leaveType, dateRange, entitlementDays) => {
+
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[1]/div/div[2]/div/div').click();
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[1]/div/div[2]/div/div').wait(1000).contains(leaveType).click();
+    
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]/div/div[2]/div/div').click();
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]/div/div[2]/div/div').wait(1000).contains(dateRange).click();
+   
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[3]/div/div[2]/input')
+      .click()
+      .type(entitlementDays);
+  });
+  
+  Cypress.Commands.add('submitEntitlement', () => {
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[4]/button[2]').click();
+    cy.xpath('//*[@id="app"]/div[3]/div/div/div/div[3]/button[2]').click().wait(1000);
+  });
+

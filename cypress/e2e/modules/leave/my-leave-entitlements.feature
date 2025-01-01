@@ -1,7 +1,9 @@
 Feature: My Leave Entitlements
-
-    Scenario: Apply leaves and check leave entitlement records
+    Background:
         Given User is logged in to search leave entitlements
+        And add entitlement in-order maintain the flow
+        
+    Scenario: Apply leaves and check leave entitlement records
         When the user visits the Apply Leave page and applies leave
         And the user visits the My Leave Entitlement page
         And the user selects the Leave Period on the My Leave Entitlement page

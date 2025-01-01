@@ -1,7 +1,10 @@
 Feature: My Leave List Functionality
 
-    Scenario: View applied leave records in the My Leave List
+    Background:
         Given User is logged in to view the leave list
+        And add entitlement add entitlement in order to View applied leave records in the My Leave List
+            
+    Scenario: View applied leave records in the My Leave List
         Given add some leave records
         And the user opens the My Leave List page
         And the user sets the From Date as "2024-03-12" of the My Leave List page search page
