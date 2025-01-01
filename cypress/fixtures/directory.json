@@ -1,0 +1,17 @@
+{
+    "user1": {
+        "employeeName": "Rebecca  Harmony",
+        "jobTitle": "QA Engineer",
+        "Location":"Texas R&D"
+    },
+    "user2": {
+        "employeeName": "manda akhil user",
+        "jobTitle": "HR Manager",
+        "Location":"Texas R&D"
+    },
+    "user3":{
+        "employeeName": "Jagath",
+        "jobTitle": "Software Engineer",
+        "Location":"Account Assistant"
+    }
+}

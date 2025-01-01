@@ -14,15 +14,14 @@
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
-    "cypress": "^13.17.0"
+    "cypress": "^13.17.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-xpath": "^2.0.1"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": [
       "cypress/support/step_definitions/"
     ],
     "nonGlobalStepDefinitions": false
-  },
-  "dependencies": {
-    "cypress-xpath": "^2.0.1"
   }
 }

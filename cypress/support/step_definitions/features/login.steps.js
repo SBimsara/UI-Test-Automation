@@ -1,5 +1,6 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
+
 Given('User visits the login page', () => {
     cy.visit('/web/index.php/auth/login');
 });
