@@ -10,10 +10,7 @@ Given('Admin is logged into the system', () => {
 
 Given('Admin navigates to the {string} page', (page) => {
   const pageMap = {
-    'Personal Details': '/web/index.php/pim/viewPersonalDetails/empNumber/7',
-    'Emergency Contacts': '/web/index.php/pim/viewEmergencyContacts/empNumber/7',
-    'Dependents': '/web/index.php/pim/viewDependents/empNumber/7',
-    'Qualifications': '/web/index.php/pim/viewQualifications/empNumber/7',
+    'Personal Details': '/web/index.php/pim/viewPersonalDetails/empNumber/7'
   };
 
   const pageUrl = pageMap[page];
