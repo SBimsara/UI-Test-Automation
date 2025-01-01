@@ -58,6 +58,36 @@ When('User fills out the Assign Claim form and clicks Create', function() {
     // Wait for the page to load after clicking Create
     cy.url().should('include', '/assignClaim'); // Verify that we are on the Assign Claim page
 
+
+    // Additional Functionality for Adding Expenses
+    // Click Add Expenses button
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[2]/div/button')
+        .should('be.visible')
+        .click();
+
+    // Select Expense Type from the dropdown
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[1]/div/div/div/div[2]/div/div/div[1]')
+        .click();
+    cy.contains('div', 'Transport')  // Replace 'Transportation' with the desired expense type
+        .click();
+
+    // Input Date
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/input')
+        .type('2025-01-01'); // Replace with the desired date in yyyy-mm-dd format
+
+    // Input Amount
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[2]/div/div[2]/div/div[2]/input')
+        .type('150'); // Replace with the desired amount
+
+    // Add Note
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[3]/div/div/div/div[2]/textarea')
+        .type('Expense note for testing.');
+
+    // Click Save button
+    cy.contains('button', 'Save')
+        .should('be.visible')
+        .click();
+
     // Click the Submit button to assign the claim
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[9]/button[2]') // Update the XPath with the correct selector for the Submit button
         .should('be.visible') // Ensure the button is visible
