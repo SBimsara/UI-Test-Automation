@@ -21,12 +21,15 @@ When('User navigates to the Assign Claim module', () => {
 
 
 When('User fills out the Assign Claim form and clicks Create', function() {
-    // Input for Employee Name
+    // // Input for Employee Name
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/div/div/input')
         .type('J', { timeout: 3000 });
 
-        cy.contains('div', 'Joseph Evans')  // This will search for a div that contains the text 'Enabled'
+        cy.contains('div', 'James Butler')  // This will search for a div that contains the text 'Enabled'
             .click();
+
+
+    
 
     // Select Event from the dropdown
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/div[1]')
