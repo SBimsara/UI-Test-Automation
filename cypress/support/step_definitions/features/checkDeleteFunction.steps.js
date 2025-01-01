@@ -9,14 +9,12 @@ When('the user clicks on the delete button in the first row of the Personal Deta
 });
 
 When('confirms the deletion', () => {
-  
   cy.get('button.oxd-button--label-danger') 
     .contains('Yes, Delete') 
     .click(); 
 });
 
 Then('the file should be deleted successfully', () => {
-  
   cy.wait(2000); 
   cy.get('.oxd-table-body').should('not.contain', 'sampleFile (2).jpeg');
 });
