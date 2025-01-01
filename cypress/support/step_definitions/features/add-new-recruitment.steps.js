@@ -19,7 +19,7 @@ When('User fills out the "Add Candidate" form with mandatory fields', () => {
         cy.get('input[name="middleName"]').type(data.candidate.middleName);
         cy.get('input[name="lastName"]').type(data.candidate.lastName);
         cy.contains('label', 'Vacancy').parents('.oxd-input-group').find('.oxd-select-text').click();
-        cy.contains('div', data.candidate.vacancy).click();  // This will search for a div that contains the text 'Software Engineer'
+        cy.contains('div', new RegExp(`^${data.candidate.vacancy}$`)).click();  // This will search for a div that contains the text 'Software Engineer'
         cy.contains('label', 'Email').parents('.oxd-input-group').find('input').type(data.candidate.email); // For Email
         cy.contains('label', 'Contact Number').parents('.oxd-input-group').find('input').type(data.candidate.contactNumber); // For Contact Number
         cy.get('input[placeholder="Enter comma seperated words..."]').type(data.candidate.keywords);

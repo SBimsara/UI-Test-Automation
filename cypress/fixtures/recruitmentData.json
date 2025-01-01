@@ -1,18 +1,25 @@
 {
-  "candidate": {
+  "candidate": 
+  {
     "firstName": "David",
-    "middleName": "Atkinson",
+    "middleName": "Atkinsonn",
     "lastName": "Miller",
-    "fullName": "David Atkinson Miller",
+    "fullName": "David Atkinsonn Miller",
     "vacancy": "Software Engineer",
     "email": "dam@jmail.com",
     "contactNumber": "1234567890",
     "keywords": "Java,Spring,Hibernate,JPA,SQL",
-    "notes": "John is a very good candidate with 5 years of experience in Java, Spring, Hibernate, JPA, SQL. He is a quick learner and has good communication skills."
+    "status": "Application Initiated",
+    "methodOfApplication": "Manual",
+    "notes": "John is a very good candidate with 5 years of experience in Java, Spring, Hibernate, JPA, SQL. He is a quick learner and has good communication skills.",
+    "falseName": "Ben Tennyson"
   },
-  "vacancy": {
-    "hiringManager": "John Test",
+  
+  "vacancy": 
+  {
+    "hiringManager": "manda user",
     "jobTitle": "Software Engineer",
+    "vacancy": "Software Engineer",
     "jobDescription": "We are looking for a Software Engineer with 5 years of experience in Java, Spring, Hibernate, JPA, SQL. The candidate should have good communication skills and should be a quick learner."
   }
 }
