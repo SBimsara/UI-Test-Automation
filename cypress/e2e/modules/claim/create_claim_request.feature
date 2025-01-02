@@ -8,9 +8,9 @@ Feature: Create Claim Request in Claim Module
     And User navigates to the Claim modules for create claim 
 
   Scenario: Successfully create a new claim request
-    When User clicks on the Submit Claim button
-    And User selects an event from the dropdown
-    And User selects a currency from the dropdown
-    And User adds remarks as a description
-    And User clicks on the Create button
+    When User clicks on the Submit Claim button for Claim Request
+    And User selects an event from the dropdown  for Claim Request
+    And User selects a currency from the dropdown  for Claim Request
+    And User adds remarks as a description  for Claim Request
+    And User clicks on the Create button  for Claim Request
     Then A success message should be displayed confirming the claim request was saved

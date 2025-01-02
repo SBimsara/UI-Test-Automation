@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 require('cypress-xpath');
 
-Given('User logs  for the claim modules', () => {
+Given('User logs  for the claim modules for Event Management', () => {
     cy.login(''); 
 });
 
@@ -11,35 +11,35 @@ Given('User navigates to the Claim module for event management', () => {
         .click();
 });
 
-When('User clicks on the Configuration button', () => {
+When('User clicks on the Configuration button for Event Management', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[1]/span') // Click Configuration button
         .should('be.visible')
         .click();
 });
 
-When('User clicks on the Events button', () => {
+When('User clicks on the Events button for Event Management', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[1]/ul/li[1]/a') // Click Events button
         .should('be.visible')
         .click();
 });
 
-When('User clicks on the Add button', () => {
+When('User clicks on the Add button for Event Management', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[2]/div[1]/button') // Click Add button
         .should('be.visible')
         .click();
 });
 
-When('User fills out the Event Name and Description', () => {
+When('User fills out the Event Name and Description for Event Management', () => {
     // Fill out Event Name
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[1]/div/div[2]/input')
-        .type('Annual Retreat', { timeout: 3000 });
+        .type('friday Trip', { timeout: 3000 });
 
     // Fill out Description
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div/div[2]/textarea')
-        .type('This is a description for the annual retreat event.', { timeout: 3000 });
+        .type('need some money for the arrangements.', { timeout: 3000 });
 });
 
-When('User clicks on the Save button', () => {
+When('User clicks on the Save button for Event Management', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/button[2]') // Click Save button
         .should('be.visible')
         .click();
