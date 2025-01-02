@@ -32,7 +32,7 @@ When('User clicks on the "Save" button', () => {
     cy.get('button[type="submit"]').click();
 });
 
-Then('User should see successfully saved message', () => {
+Then('User should see "Successfully Saved" message', () => {
     cy.contains('Successfully Saved').should('be.visible');
 })
 
@@ -56,5 +56,5 @@ Then('User should not redirect to any other page', () => {
 });
 
 Then('User should see "Required" under the missing mandatory fileds', () => {
-    cy.contains('Required').should('be.visible');
+    cy.contains('span','Required').should('be.visible');
   });

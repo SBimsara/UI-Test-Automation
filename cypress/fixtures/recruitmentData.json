@@ -5,7 +5,7 @@
     "middleName": "Atkinsonn",
     "lastName": "Miller",
     "fullName": "David Atkinsonn Miller",
-    "vacancy": "Software Engineer",
+    "vacancy": "Software Engineer - Internship",
     "email": "dam@jmail.com",
     "contactNumber": "1234567890",
     "keywords": "Java,Spring,Hibernate,JPA,SQL",
@@ -17,9 +17,11 @@
   
   "vacancy": 
   {
-    "hiringManager": "manda user",
+    "hiringManager": "John Doe",
     "jobTitle": "Software Engineer",
-    "vacancy": "Software Engineer",
-    "jobDescription": "We are looking for a Software Engineer with 5 years of experience in Java, Spring, Hibernate, JPA, SQL. The candidate should have good communication skills and should be a quick learner."
+    "vacancyName1": "Software Engineer - Internship",
+    "vacancyName2": "Software Engineer - Senior Technical Lead",
+    "description": "We are looking for a Trainee Software Engineer to join our team. The candidate should have experience in Java, Spring, JPA, SQL. The candidate should be a quick learner and have good communication skills.",
+    "noOfPositions": "5"
   }
 }
