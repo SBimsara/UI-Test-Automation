@@ -18,8 +18,8 @@ Scenario: User adds a new vacancy without mandatory fields
     And User should see "Required" under the missing mandatory fileds
      
 Scenario: User adds a new vacancy with already exist data
-    Given User clicks on the "Add" button
+    Given User clicks on the "Add" button 
     When User fills out the "Add Vacancy" form with already existing vacancy 
-    And User clicks on the "Save" button
+    And User clicks on the "Save" button 
     Then User should stay on "addJobVacancy" page   
     And User should see "Already exists" under the "Vacancy Name" fileds      
