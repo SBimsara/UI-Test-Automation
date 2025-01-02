@@ -14,5 +14,5 @@ When('the Admin clicks the Save button', () => {
 
 Then('the changes should be saved successfully', () => {
   cy.wait(2000); 
-  cy.contains('Successfully Saved').should('be.visible');
+  cy.contains('Successfully Updated').should('be.visible');
 });

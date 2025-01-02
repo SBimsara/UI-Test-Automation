@@ -9,5 +9,5 @@ Feature: Verify upload functionality on the Personal Details page
     And the file upload section is visible
     And the user clicks on the "Browse" button to upload a file
     And the user selects and uploads a file
-    And the user clicks on the "Save" button
+    And the user clicks on the correct "Save" button in the Personal Details section
     Then the uploaded file should be displayed in the table
