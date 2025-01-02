@@ -1,4 +1,4 @@
-Feature: Claim Module
+Feature: assign new claim 
 
   Scenario: Create a new claim
     Given User logs in as an admin for the claim module
