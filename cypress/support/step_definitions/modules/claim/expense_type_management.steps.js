@@ -7,7 +7,7 @@ let expenseTypeWithTimestamp; // Variable to store the unique expense type name
 
 // Background steps
 Given('test User logs in as an admin for the claim modules for Expense Type Management', () => {
-    cy.login('Admin', 'admin123'); // Login as admin
+    cy.login();
 });
 
 Given('test User navigates to the Claim modules for Expense Type Management', () => {
@@ -85,5 +85,5 @@ Then('User should see "Already exists" under the Name field', () => {
 });
 
 Then('User should not redirect to any other page stay same page', () => {
-    cy.url().should('include', 'web/index.php/claim/saveExpense'); // Confirm URL stays on the expense type management page
+    cy.url().should('include', 'web/index.php/claim/saveExpense'); 
 });

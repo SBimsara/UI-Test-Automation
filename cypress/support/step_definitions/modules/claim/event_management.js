@@ -4,7 +4,7 @@ require('cypress-xpath');
 let eventNameWithTimestamp;
 
 Given('User logs  for the claim modules for Event Management', () => {
-    cy.login('Admin', 'admin123'); // Log in as admin
+    cy.login();
 });
 
 Given('User navigates to the Claim module for event management', () => {

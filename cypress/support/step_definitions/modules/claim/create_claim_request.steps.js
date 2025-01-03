@@ -2,7 +2,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 require('cypress-xpath');
 
 Given('User logs for the claim modules for create claim', () => {
-    cy.login('Admin', 'admin123'); // Login as admin
+    cy.login();
 });
 
 Given('User navigates to the Claim modules for create claim', () => {
