@@ -7,6 +7,13 @@ Given('User is logged in in order to Apply Leave Functionality, successful Scena
     cy.login();
 });
 
+Given('add entitlement', () => {
+  cy.navigateToLeaveEntitlementPage();
+  cy.searchEmployee();
+  cy.addEntitlementDetails('CAN - FMLA', '2025', 30);
+  cy.submitEntitlement();
+});
+
 Given('delete the leave list', () => {
   
   cy.visit('/web/index.php/leave/viewMyLeaveList');
@@ -46,12 +53,6 @@ Given('delete the leave list', () => {
   });
 });
 
-Given('add entitlement', () => {
-  cy.navigateToLeaveEntitlementPage();
-  cy.searchEmployee();
-  cy.addEntitlementDetails('CAN - FMLA', '2025-01-01 - 2025-31-12', 30);
-  cy.submitEntitlement();
-});
 
 
 Given('the user navigates to the Apply Leave page', () => {
