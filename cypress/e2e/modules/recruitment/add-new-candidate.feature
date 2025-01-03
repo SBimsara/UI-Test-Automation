@@ -1,7 +1,7 @@
 Feature: Add New Candidate
 
 Background: 
-    Given User is logged in
+    Given User is logged in to the system
     Given User navigates to the recruitment page
     
 Scenario: User adds a new candidate with mandatory fields

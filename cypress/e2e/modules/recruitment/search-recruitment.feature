@@ -1,7 +1,7 @@
 Feature: Search recruitment
 
 Background: 
-    Given User is logged in
+    Given User is logged in to the system
     Given User navigates to the recruitment page
     
 Scenario: User searches newly added candidate with valid data  
