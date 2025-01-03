@@ -13,7 +13,7 @@ When('User navigates to the Maintenance section', () => {
   cy.get('a[href*="maintenance"]').click();
 });
 
-When('enters valid admin credentials in the popup', () => {
+When(' User enters valid admin credentials in the popup', () => {
   cy.get('input[name="password"]').type('admin123'); // Valid admin password
   cy.get('button[type="submit"]').contains('Confirm').click();
 });
