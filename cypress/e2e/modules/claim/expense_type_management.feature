@@ -1,4 +1,4 @@
-Feature: Expense Type Management in Claim Module
+Feature: 4.Expense Type Management in Claim Module
   As an admin user,
   I want to manage expense types in the claim module,
   So that new expense types can be added and tracked.

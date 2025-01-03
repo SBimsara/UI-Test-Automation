@@ -1,6 +1,6 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
-let fullName = ''; // Variable to store the full name
+let fullName = ''; 
 
 // Step 1: Log in as admin
 Given('User logs in as an admin for the claim module', () => {
@@ -37,13 +37,23 @@ When('User navigates to the Assign Claim module', () => {
 });
 
 // Step 6: Fill out the Assign Claim form and click Create
+// When('User fills out the Assign Claim form and clicks Create', function() {
+//   // Input for Employee Name (using fullName directly)
+//   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/div/div/input')
+//     .type(fullName, { timeout: 3000 }); // Use the full name variable
+//     cy.contains('div', fullName, { timeout: 3000 }).first().click();
+
+
+
 When('User fills out the Assign Claim form and clicks Create', function() {
-  // Input for Employee Name (using fullName directly)
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/div/div/input')
-    .type(fullName, { timeout: 3000 }); // Use the full name variable
-    cy.contains('div', fullName, { timeout: 3000 }).first().click();
+    // // Input for Employee Name
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div/div/div[2]/div/div/input')
+        .type('J', { timeout: 3000 });
 
+        cy.contains('div', 'James Butler')  // This will search for a div that contains the text 'Enabled'
+            .click();
 
+    
   // Select claim type
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/div')
     .eq(0).click();

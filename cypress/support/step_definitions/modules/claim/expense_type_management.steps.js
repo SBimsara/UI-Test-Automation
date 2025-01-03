@@ -1,9 +1,7 @@
-
-
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 require('cypress-xpath');
 
-let expenseTypeWithTimestamp; // Variable to store the unique expense type name
+let expenseTypeWithTimestamp; 
 
 // Background steps
 Given('test User logs in as an admin for the claim modules for Expense Type Management', () => {
@@ -67,9 +65,9 @@ Then('test A success message should be displayed confirming the expense type was
         .should('be.visible');
 });
 
-// Scenario: adding Duplicated new expense type
+
 When('test User fills out the Duplicated Expense Type and Description for Expense Type Management', () => {
-    // Use the previously created expense type name to simulate a duplicate
+    
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div[1]/div/div[2]/input')
         .type(expenseTypeWithTimestamp, { timeout: 3000 });
 
@@ -79,9 +77,9 @@ When('test User fills out the Duplicated Expense Type and Description for Expens
 });
 
 Then('User should see "Already exists" under the Name field', () => {
-    cy.get('.oxd-input-field-error-message') // Use the specific class for the error message
-      .should('have.text', 'Already exists') // Ensure the text is as expected
-      .should('be.visible'); // Verify the element is visible
+    cy.get('.oxd-input-field-error-message') 
+      .should('have.text', 'Already exists') 
+      .should('be.visible'); 
 });
 
 Then('User should not redirect to any other page stay same page', () => {
