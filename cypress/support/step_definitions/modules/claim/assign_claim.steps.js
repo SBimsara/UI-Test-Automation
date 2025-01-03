@@ -28,25 +28,28 @@ When('User fills out the Assign Claim form and clicks Create', function() {
             .click();
 
 
-    
+// Step 1: Click to open the dropdown
+cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/div')
+  .eq(0).click(); // Click to open the dropdown
 
-    // Select Event from the dropdown
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/div[1]')
-        .click();
-    cy.contains('div', 'Accommodation')  // This will search for a div that contains the text 'Enabled'
-        .click();
+// Step 2: Click the first item inside the dropdown using eq(0)
+cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]')
+  .eq(0).click(); // Click the first selected item in the dropdown
 
-      
 
-    // Select Currency from the dropdown
-    cy.xpath(' //*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/div/div/div[1]')
-    .click();
-     cy.contains('div', 'Euro')  // This will search for a div that contains the text 'Enabled'
-    .click();
+// Step 1: Click to open the dropdown
+cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/div/div/div[1]')
+  .eq(0).click(); // Click to open the dropdown
+
+// Step 2: Click the first item inside the dropdown using eq(0)
+cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/div/div[2]/div[3]')
+  .eq(0).click(); // Click the first selected item in the dropdown
+
+
 
     // Add Remarks
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div/div/div[2]/textarea')
-        .type('Testing claim creation for John Doe.');
+        .type('Testing claim creation .');
 
 
     // Click Create button
@@ -59,16 +62,22 @@ When('User fills out the Assign Claim form and clicks Create', function() {
 
 
     // Additional Functionality for Adding Expenses
+     
     // Click Add Expenses button
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[2]/div/button')
         .should('be.visible')
         .click();
 
-    // Select Expense Type from the dropdown
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[1]/div/div/div/div[2]/div/div/div[1]')
-        .click();
-    cy.contains('div', 'Transport')  // Replace 'Transportation' with the desired expense type
-        .click();
+
+
+        cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[1]/div/div/div/div[2]/div/div/div[1]')
+        .eq(0).click(); // Click the first selected item in the dropdown
+
+    // Step 2: Click the first item inside the dropdown using eq(0)
+    cy.xpath(' //*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[1]/div/div/div/div[2]/div/div[2]/div[2]')
+          .eq(0).click(); // Click the first selected item in the dropdown
+
+        //*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[1]/div/div/div/div[2]/div/div[2]/div[2]
 
     // Input Date
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[6]/div/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/input')
