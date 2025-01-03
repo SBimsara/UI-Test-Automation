@@ -7,8 +7,8 @@ When('the user clicks on the download link or button in the Personal Details tab
     .click();  
 });
 
-Then('the file "test.png" should be downloaded successfully', () => {
-  const downloadPath = 'cypress/downloads/test.png';  
+Then('the file "testfile.txt" should be downloaded successfully', () => {
+  const downloadPath = 'cypress/downloads/testfile.txt';  
 
   cy.wait(2000);  
   cy.readFile(downloadPath).should('exist');
