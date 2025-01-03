@@ -20,9 +20,10 @@ Given('User navigates to the Buzz section', () => {
 // });
 
 When('User comments on the comments box', () => {
-    cy.wait(2000);
-    cy.get('.oxd-buzz-post oxd-buzz-post--active') // Open Event dropdown
-        .click()
+
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/form/div').click();
+
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/form/div/textarea') // Open Event dropdown
         .type('This is a test comment!!');
         
     // cy.contains('div', 'Accommodation') // Select "Accommodation"
@@ -30,14 +31,13 @@ When('User comments on the comments box', () => {
     //     .click();
 });
 
-When('User clicks on the Post button', () => {
-    cy.xpath('//*[@id="Buzz Newsfeed"]/div/div[1]/div[1]/div[2]/form/div/div/button') // Click Search button
-        .should('be.visible')
+When('User clicks the Post button', () => {
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/form/div/div/button') // Click Search button
         .click();
 });
 
 Then('User checks his posted comment', () => {
-    cy.contains('div', 'This is a test comment!!') // Check if the comment is posted
+    cy.contains('This is a test comment!!') // Check if the comment is posted
         
 });
 
