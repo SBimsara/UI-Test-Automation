@@ -1,6 +1,6 @@
 import {Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given('User is logged in', () => {
+Given('User is logged in to the system', () => {
   cy.login();
 });
 
