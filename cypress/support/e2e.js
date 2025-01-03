@@ -17,5 +17,4 @@
 import './commands'
 import 'cypress-file-upload';
 import 'cypress-downloadfile/lib/downloadFileCommand';
-
-
+import '@shelex/cypress-allure-plugin';
