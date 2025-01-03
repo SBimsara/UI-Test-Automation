@@ -3,7 +3,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 Given('add entitlement when one or more mandatory fields missing Scenario', () => {
   cy.navigateToLeaveEntitlementPage();
   cy.searchEmployee();
-  cy.addEntitlementDetails('CAN - FMLA', '2025-01-01 - 2025-31-12', 30);
+  cy.addEntitlementDetails('CAN - FMLA', '2025', 30);
   cy.submitEntitlement();
 });
 

@@ -3,7 +3,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 let firstName="";
 
-Given('User is logged in', () => {
+Given('User is logged in in order to Apply Leave Functionality, successful Scenario', () => {
     cy.login();
 });
 

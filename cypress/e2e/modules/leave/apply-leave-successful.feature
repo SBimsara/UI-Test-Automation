@@ -1,7 +1,7 @@
 Feature: Apply Leave Functionality, successful Scenario
 
   Background:
-    Given User is logged in
+    Given User is logged in in order to Apply Leave Functionality, successful Scenario
     And delete the leave list
     And add entitlement
 
