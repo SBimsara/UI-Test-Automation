@@ -2,7 +2,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 require('cypress-xpath');
 
 Given('User logs in as an admin for the claim modules for View My Claims', () => {
-    cy.login('Admin', 'admin123'); // Login as admin
+    cy.login();
 });
 
 Given('User navigates to the Claim modules for View My Claims', () => {
@@ -17,13 +17,26 @@ When('User clicks on the My Claim button for View My Claims', () => {
         .click();
 });
 
+// When('User selects an event from the dropdown for View My Claims', () => {
+//     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]') // Open Event dropdown
+//         .click();
+//     cy.contains('div', 'Accommodation') // Select "Accommodation"
+//         .should('be.visible')
+//         .click();
+// });
+
+
+
 When('User selects an event from the dropdown for View My Claims', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]') // Open Event dropdown
-        .click();
-    cy.contains('div', 'Accommodation') // Select "Accommodation"
-        .should('be.visible')
-        .click();
+       .eq(0).click();
+
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]')
+       .should('be.visible')    
+       .eq(0).click(); // Click the first selected item in the dropdown    
+ 
 });
+
 
 When('User clicks on the Search button for View My Claims', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/div[2]/form/div[3]/button[2]') // Click Search button

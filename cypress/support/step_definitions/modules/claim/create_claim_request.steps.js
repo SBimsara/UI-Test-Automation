@@ -2,7 +2,7 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 require('cypress-xpath');
 
 Given('User logs for the claim modules for create claim', () => {
-    cy.login('Admin', 'admin123'); // Login as admin
+    cy.login();
 });
 
 Given('User navigates to the Claim modules for create claim', () => {
@@ -17,20 +17,29 @@ When('User clicks on the Submit Claim button for Claim Request', () => {
         .click();
 });
 
+
+
 When('User selects an event from the dropdown  for Claim Request', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div/div[1]') // Open Event dropdown
-        .click();
-    cy.contains('div', 'Accommodation') // Select "Accommodation"
-        .should('be.visible')
-        .click();
+    .eq(0).click();
+
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[2]')
+        .should('be.visible')    
+        .eq(0).click(); // Click the first selected item in the dropdown    
+  
 });
+
+
+
 
 When('User selects a currency from the dropdown  for Claim Request', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]') // Open Currency dropdown
-        .click();
-    cy.contains('div', 'Afghanistan Afghani') // Select "Euro"
-        .should('be.visible')
-        .click();
+      .eq(0).click();
+
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]')
+      .should('be.visible')    
+      .eq(0).click(); // Click the first selected item in the dropdow
+
 });
 
 When('User adds remarks as a description  for Claim Request', () => {
