@@ -20,11 +20,11 @@ Given('delete the leave list', () => {
 
   //set from date
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input')
-    .first().clear().type('2024-01-01').click(); 
+    .first().clear().type('2025-01-01').click(); 
 
   //set to date
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/input')
-  .last().clear().type('2024-31-12').click(); 
+  .last().clear().type('2025-31-12').click(); 
 
   //remove rejected
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').click();
