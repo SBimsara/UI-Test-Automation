@@ -1,7 +1,7 @@
 Feature: Add New Vacancy
 
 Background: 
-    Given User is logged in
+    Given User is logged in to the system
     And User navigates to the vacancy page
     
 Scenario: User adds a new vacancy with mandatory fields
