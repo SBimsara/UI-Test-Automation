@@ -38,7 +38,7 @@ When('User fills out the Event Name and Description for Event Management', () =>
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-    }).replace(/ /g, '-'); // Replace spaces with hyphens for compatibility
+    }).replace(/ /g, '-'); 
 
     eventNameWithTimestamp = `Fridays-Trip-${formattedTimestamp}`; // Create unique event name
 
@@ -79,6 +79,6 @@ Then('User should see "Already exists" under the Event Name field', () => {
       .should('be.visible'); // Verify the element is visible
 });
 
-Then('User should not redirect to any other page', () => {
+Then('User should not redirect to any other page from saveEvents', () => {
     cy.url().should('include', 'web/index.php/claim/saveEvents'); // Confirm URL stays on the event management page
 });

@@ -1,4 +1,4 @@
-Feature: Create Claim Request in Claim Module
+Feature: 2.Create Claim Request in Claim Module
   As an admin user,
   I want to create a claim request in the claim module,
   So that the claim can be recorded and processed.
