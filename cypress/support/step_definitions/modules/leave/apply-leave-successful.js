@@ -18,22 +18,34 @@ Given('delete the leave list', () => {
   
   cy.visit('/web/index.php/leave/viewMyLeaveList');
 
-  //set from date
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input')
-    .first().clear().type('2025-01-01').click(); 
+  // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input')
+  //   .last()
+  //   .should('be.visible')  // Ensure the element is visible
+  //   .clear({ force: true })               // Clear the field
+  //   .type('2025-01-01', { force: true });  // Type the date with force if needed
 
-  //set to date
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/input')
-    .last().clear().type('2025-31-12').click(); 
+  // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/input')
+  //   .first()
+  //   .should('be.visible')  // Ensure the element is visible       
+  //   .clear({ force: true }) 
+  //   .type('2025-31-12', { force: true });  // Type the date with force if needed
+
+  // //set from date
+  // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input')
+  //   .first().clear().type('2025-01-01').click(); 
+
+  // //set to date
+  // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/input')
+  //   .last().clear().type('2025-31-12').click(); 
 
   //remove rejected
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').click({ force: true });
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').wait(500).click({ force: true });
   //remove cancelled
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').click({ force: true });
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').wait(500).click({ force: true });
   //remove Sceduled
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').click({ force: true });
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').wait(500).click({ force: true });
   //remove Taken
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').click({ force: true });
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').wait(500).click({ force: true });
 
   //Click the Search button
   cy.get('[data-v-10d463b7]').contains('Search').click({ force: true }); 

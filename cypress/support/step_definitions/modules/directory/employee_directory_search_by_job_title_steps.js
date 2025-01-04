@@ -22,5 +22,5 @@ When('User click on the Search button to search employees by job title', () => {
 });
 
 Then('User should see a list of employees with the job title HR Manager', () => {
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').contains('HR Manager');
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').wait(1000).contains('HR Manager');
 });
