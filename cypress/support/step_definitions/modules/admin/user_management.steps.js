@@ -4,14 +4,14 @@ require('cypress-xpath');
 
 Given('User logged in as an admin', () => {
     cy.login('Admin', 'admin123');
-    cy.wait(2000);
+    //cy.wait(2000);
 });
 
 Given('User navigates to the Admin module', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a')
             .should('be.visible')
             .click();
-    cy.wait(1000);
+    //cy.wait(1000);
 });
 
 When('User creates a new user', function(dataTable) {
@@ -20,7 +20,7 @@ When('User creates a new user', function(dataTable) {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button')
         .should('be.visible')
         .click();
-    cy.wait(3000);
+    //cy.wait(3000);
 
     
 
@@ -77,14 +77,14 @@ When('User deletes the user with username {string}', (username) => {
     // Search for the user
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input').type(username);
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').click();
-    cy.wait(2000);
+    //cy.wait(2000);
 
     // checking the user is available
     cy.get('.oxd-table')
         .contains('div', username)
         .should('be.visible')
         .click();
-    cy.wait(1000);
+    //cy.wait(1000);
 
     // Click the delete button
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[6]/div/button[1]')

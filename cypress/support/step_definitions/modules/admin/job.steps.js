@@ -22,7 +22,7 @@ Given('User navigates to the Job Titles functionality', () => {
         .contains('Job Titles')
         .should('be.visible')
         .click();
-    cy.wait(3000);
+    //cy.wait(3000);
 });
 
 When('User creates a new Job Title', function(dataTable) {
@@ -31,7 +31,7 @@ When('User creates a new Job Title', function(dataTable) {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[1]/div/button')
         .should('be.visible')
         .click();
-    cy.wait(3000);
+    //cy.wait(3000);
 
     dataTable.hashes().forEach((jobTitleData) => {
         
@@ -62,7 +62,7 @@ Given('User navigates to the Pay Grade functionality', () => {
         .contains('Pay Grade')
         .should('be.visible')
         .click();
-    cy.wait(3000);
+    //cy.wait(3000);
 });
 
 
@@ -72,7 +72,7 @@ When('User creates the new Pay Grade', function(dataTable) {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div[1]/div/button')
         .should('be.visible')
         .click();
-    cy.wait(3000);
+    //cy.wait(3000);
 
     dataTable.hashes().forEach((payGradeData) => {
 
@@ -86,13 +86,13 @@ When('User creates the new Pay Grade', function(dataTable) {
         .should('be.visible')
         .click();
     
-    cy.wait(3000);
+    //cy.wait(3000);
 
     // adding currency
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[2]/div/div[1]/div/button')
         .should('be.visible')
         .click();
-    cy.wait(2000);
+    //cy.wait(2000);
 
     // input for currency
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[2]/form/div[1]/div/div/div/div[2]/div')
