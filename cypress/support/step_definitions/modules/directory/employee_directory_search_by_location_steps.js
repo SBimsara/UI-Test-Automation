@@ -9,12 +9,15 @@ Given('visit employee directory page in-order to search employee by location', (
 });
 
 When('user select Texas R&D from the Location dropdown in the Employee Directory', () => {
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/div[2]')
-    .click({ force: true });    
+    // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/div[2]')
+    // .click({ force: true });    
     
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div')
-    .contains('Texas R&D')
-    .click({ force: true });
+    // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div')
+    // .contains('Texas R&D')
+    // .click({ force: true });
+
+    cy.contains('label', 'Location').parents('.oxd-input-group').find('.oxd-select-text').click();
+    cy.contains('div', 'Texas R&D').click();
 });
 
 When('user clicks on the Search button to search employees by location', () => {

@@ -61,21 +61,27 @@ When('Enter the Employee Name', () => {
 });
 
 When('Select Job title from the Job Title dropdown', () => {
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]')
-  .click({ force: true });    
+  // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]')
+  // .click({ force: true });    
   
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div')
-  .contains(jobTitle)
-  .click({ force: true });
+  // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div')
+  // .contains(jobTitle)
+  // .click({ force: true });
+
+  cy.contains('label', 'Job Title').parents('.oxd-input-group').find('.oxd-select-text').click();
+  cy.contains('div', jobTitle).click();
 });
 
 When('Select Location from the Location dropdown', () => {
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/div[2]')
-  .click({ force: true });    
+  // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/div[2]')
+  // .click({ force: true });    
   
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div')
-  .contains(location)
-  .click();
+  // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div')
+  // .contains(location)
+  // .click();
+
+  cy.contains('label', 'Location').parents('.oxd-input-group').find('.oxd-select-text').click();
+  cy.contains('div', location).click();
 });
 
 When('Click on the Search button', () => {
