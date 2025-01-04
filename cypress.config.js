@@ -19,14 +19,14 @@ module.exports = defineConfig({
       allureWriter(on, config);
 
       // // Attach video to Allure report after each spec
-      on('after:spec', (spec, results) => {
-        if (results && results.video) {
-          const videoPath = results.video;
-          // Read the video file and attach it to Allure
-          const videoContent = readFileSync(videoPath);
-          cy.allure().fileAttachment('Test Video', videoContent, 'video/mp4');
-        }
-      });
+      // on('after:spec', (spec, results) => {
+      //   if (results && results.video) {
+      //     const videoPath = results.video;
+      //     // Read the video file and attach it to Allure
+      //     const videoContent = readFileSync(videoPath);
+      //     cy.allure().fileAttachment('Test Video', videoContent, 'video/mp4');
+      //   }
+      // });
 
       return config;
 
