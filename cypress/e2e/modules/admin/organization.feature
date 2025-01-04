@@ -14,4 +14,4 @@ Feature: Organization
         When User adds a new location
         | Name         | City         | State | Zip Code | Country       | Phone        | Fax        | Address        |
         | New Location | Springfield  | IL    | 62701    | Sri Lanka     | 123-456-7890 | 123456789  | 1234 Elm St    |
-        Then User should see the success message
+        Then User should be redirected to the Locations page

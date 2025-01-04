@@ -113,6 +113,10 @@ When('User adds a new location', function(dataTable) {
     cy.get('button[type="submit"]').click();
 });
 
+Then('User should be redirected to the Locations page', () => {
+    cy.url().should('include', 'web/index.php/admin/viewLocations');
+});
+
 
 
 
