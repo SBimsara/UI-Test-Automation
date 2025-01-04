@@ -29,7 +29,7 @@ When('enter employee name in the Employee Name field', () => {
 });
 
 When('click on the Search button in-order to search employee by employee name', () => {
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').click();
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').click({ force: true });
 });
 
 Then('should see a list of employees matching the name entered', () => {

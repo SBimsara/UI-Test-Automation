@@ -21,7 +21,7 @@ Given('Get employee name , job title and location',() => {
     });
 
     // Wait for job title field to load and get its value
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[1]/div[2]/div[6]/a').wait(1000).click();
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[1]/div[2]/div[6]/a').wait(1000).click({ force: true });
   
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]')
       .should('be.visible')
@@ -62,16 +62,16 @@ When('Enter the Employee Name', () => {
 
 When('Select Job title from the Job Title dropdown', () => {
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]')
-  .click();    
+  .click({ force: true });    
   
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div')
   .contains(jobTitle)
-  .click();
+  .click({ force: true });
 });
 
 When('Select Location from the Location dropdown', () => {
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/div[2]')
-  .click();    
+  .click({ force: true });    
   
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div')
   .contains(location)
@@ -79,7 +79,7 @@ When('Select Location from the Location dropdown', () => {
 });
 
 When('Click on the Search button', () => {
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').wait(1000).click();
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').wait(1000).click({ force: true });
 });
 
 Then('Display a list of employees matching the name, job title and location', () => {

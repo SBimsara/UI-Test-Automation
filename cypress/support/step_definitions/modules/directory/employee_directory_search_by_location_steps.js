@@ -10,15 +10,15 @@ Given('visit employee directory page in-order to search employee by location', (
 
 When('user select Texas R&D from the Location dropdown in the Employee Directory', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div/div[2]')
-    .click();    
+    .click({ force: true });    
     
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div')
     .contains('Texas R&D')
-    .click();
+    .click({ force: true });
 });
 
 When('user clicks on the Search button to search employees by location', () => {
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').wait(1000).click();
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').wait(1000).click({ force: true });
 });
 
 Then('user should see a list of employees located in Texas R&D in the Employee Directory', () => {

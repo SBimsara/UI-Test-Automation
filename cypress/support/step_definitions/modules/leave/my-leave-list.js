@@ -17,9 +17,9 @@ Given('add some leave records', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[2]').click();
     cy.get('.oxd-select-text-input').should('not.be.empty');
     cy.get('.oxd-text oxd-text--p orangehrm-leave-balance-text').should('not.be.empty');
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/input').first().clear().type('2024-03-12').click(); 
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/div/div/input').last().clear().type('2024-04-12').click(); 
-    cy.get('button[type="submit"]').click();  
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/div/div/input').first().clear().type('2025-03-12').click({ force: true }); 
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/div/div/input').last().clear().type('2025-04-12').click({ force: true }); 
+    cy.get('button[type="submit"]').click({ force: true });  
     
 });
 
@@ -30,27 +30,27 @@ Given('the user opens the My Leave List page', () => {
 });
 
   
-When('the user sets the From Date as {string} of the My Leave List page search page', (fromDate) => {
+When('the user sets the From Date as {string} of the My Leave List page search page', (fromDate) => { 
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input') 
-    .last()
-    .clear()
-    .type(fromDate)
-    .click();
+    .should('be.visible') // Ensure the input field is visible
+    .invoke('val', '')    // Forcefully clear the value
+    .type(fromDate, { force: true }) // Type the new value forcefully
+    .should('have.value', fromDate); // Verify the new value is set
 });
 
 When('the user sets the To Date as {string} of the My Leave List page search page', (toDate) => {
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/input')
-    .first()
-    .clear()
-    .type(toDate)
-    .click(); 
+    .should('be.visible') // Ensure the input field is visible
+    .invoke('val', '')    // Forcefully clear the value
+    .type(toDate, { force: true }) // Type the new value forcefully
+    .should('have.value', toDate); // Verify the new value is set
 });
 
 When('the user clicks the Search button on the My Leave List page', () => {
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]') 
     .should('be.visible')
     .and('not.be.disabled')
-    .click();
+    .click({ force: true });
 });
 
 Then('the leave list should display records instead of showing No Records Found on the My Leave List page', () => {

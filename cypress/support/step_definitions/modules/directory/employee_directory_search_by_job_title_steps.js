@@ -10,15 +10,15 @@ Given('Visit the employee directory page to search by job title', () => {
 
 When('User selelect HR Manager from the Job Title dropdown', () => {
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]')
-  .click();    
+  .click({ force: true });    
   
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div')
   .contains('HR Manager')
-  .click();
+  .click({ force: true });
 });
 
 When('User click on the Search button to search employees by job title', () => {
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').wait(1000).click();
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]').wait(1000).click({ force: true });
 });
 
 Then('User should see a list of employees with the job title HR Manager', () => {

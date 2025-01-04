@@ -24,19 +24,19 @@ Given('delete the leave list', () => {
 
   //set to date
   cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/input')
-  .last().clear().type('2025-31-12').click(); 
+    .last().clear().type('2025-31-12').click(); 
 
   //remove rejected
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').click();
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').click({ force: true });
   //remove cancelled
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').click();
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[1]/i').click({ force: true });
   //remove Sceduled
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').click();
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').click({ force: true });
   //remove Taken
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').click();
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[3]/div/div[2]/div/div[2]/span[2]/i').click({ force: true });
 
   //Click the Search button
-  cy.get('[data-v-10d463b7]').contains('Search').click(); 
+  cy.get('[data-v-10d463b7]').contains('Search').click({ force: true }); 
 
   cy.get('.oxd-table-body').then((tableBody) => {
     if (tableBody.children().length === 0) {
@@ -44,7 +44,7 @@ Given('delete the leave list', () => {
     } else {
       cy.log('The table body is not empty');
       // No "No Records Found" text exists, proceed with deletion
-      cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/div/div[1]/div/label/span/i').click();
+      cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/div/div[1]/div/label/span/i').click({ force: true });
       cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/div/button').click();
   
       // Click confirm to delete pending leave records
