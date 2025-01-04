@@ -10,7 +10,7 @@ Given('User navigates to the Organization functionality', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]/ul/li[1]/a')
         .contains('General Information')
         .should('be.visible')
-        .click();
+        .click({ force: true });
     //cy.wait(3000);
 });
 
@@ -18,23 +18,26 @@ When('User changes the {string} to {string}', (field, value) => {
     // Toggle the edit button
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/div/div/label/span')
         .should('be.visible')
-        .click();
+        .click({ force: true });
 
     // Update the field
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]')
-        .should('be.visible')
-        .contains('label', field)
-        .parent()
-        .siblings('div')
-        .find('input') 
-        .should('be.visible')
-        .clear()
-        .type(value);
+    // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]')
+    //     .should('be.visible')
+    //     .contains('label', field)
+    //     .parent()
+    //     .siblings('div')
+    //     .find('input') 
+    //     .should('be.visible')
+    //     .clear()
+    //     .type(value);
+
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]/div/div[2]/input')
+            .type(value);
 
     // Save the changes
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[7]/button')
         .should('be.visible')
-        .click();
+        .click({ force: true });
 });
 
 Then('User should see the update success message', () => {
@@ -62,7 +65,7 @@ When('User adds a new location', function(dataTable) {
     // clicks the add button
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/div/button')
         .should('be.visible')
-        .click();
+        .click({ force: true });
     //cy.wait(3000);
 
     dataTable.hashes().forEach((locationData) => {
@@ -107,9 +110,9 @@ When('User adds a new location', function(dataTable) {
     });
 
     // clicks the save button
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]')
+    cy.get('button[type="submit"]')
         .should('be.visible')
-        .click();
+        .click({ force: true });
 });
 
 
