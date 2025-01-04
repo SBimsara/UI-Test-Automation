@@ -4,14 +4,14 @@ require('cypress-xpath');
 Given('User navigates to the Organization functionality', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]')
         .click();
-    //cy.wait(1000);
+    cy.wait(1000);
 
     // click the General Information option
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]/ul/li[1]/a')
         .contains('General Information')
         .should('be.visible')
         .click({ force: true });
-    //cy.wait(3000);
+    cy.wait(3000);
 });
 
 When('User changes the {string} to {string}', (field, value) => {
@@ -20,19 +20,19 @@ When('User changes the {string} to {string}', (field, value) => {
         .should('be.visible')
         .click({ force: true });
 
-    // Update the field
-    // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]')
-    //     .should('be.visible')
-    //     .contains('label', field)
-    //     .parent()
-    //     .siblings('div')
-    //     .find('input') 
-    //     .should('be.visible')
-    //     .clear()
-    //     .type(value);
+    //Update the field
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]')
+        .should('be.visible')
+        .contains('label', field)
+        .parent()
+        .siblings('div')
+        .find('input') 
+        .should('be.visible')
+        .clear()
+        .type(value);
 
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]/div/div[2]/input')
-            .type(value);
+    // cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[3]/div/div[2]/div/div[2]/input')
+    //         .type(value);
 
     // Save the changes
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[7]/button')
@@ -110,9 +110,7 @@ When('User adds a new location', function(dataTable) {
     });
 
     // clicks the save button
-    cy.get('button[type="submit"]')
-        .should('be.visible')
-        .click({ force: true });
+    cy.get('button[type="submit"]').click();
 });
 
 
