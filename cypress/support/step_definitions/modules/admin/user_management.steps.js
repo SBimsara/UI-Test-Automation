@@ -84,7 +84,7 @@ When('User deletes the user with username {string}', (username) => {
         .contains('div', username)
         .should('be.visible')
         .click({ force: true });
-    //cy.wait(1000);
+    cy.wait(1000);
 
     // Click the delete button
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[6]/div/button[1]')
