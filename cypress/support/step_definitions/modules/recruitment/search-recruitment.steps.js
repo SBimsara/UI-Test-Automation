@@ -112,7 +112,7 @@ Given('User fills vacancy search fields with data not availabe', () => {
         //     cy.get('div[role="listbox"]').contains(fAndLName).click(); 
         // });        
         cy.contains('label', 'Status').parents('.oxd-input-group').find('.oxd-select-text').click();
-        cy.contains('div', data.vacancy.status).click();   
+        cy.contains('div', data.vacancy.statusNegative).click();   
         
     });
 });

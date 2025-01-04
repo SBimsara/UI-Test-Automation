@@ -4,14 +4,14 @@ require('cypress-xpath');
 Given('User navigates to the Organization functionality', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]')
         .click();
-    cy.wait(1000);
+    //cy.wait(1000);
 
     // click the General Information option
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]/ul/li[1]/a')
         .contains('General Information')
         .should('be.visible')
         .click();
-    cy.wait(3000);
+    //cy.wait(3000);
 });
 
 When('User changes the {string} to {string}', (field, value) => {
@@ -45,17 +45,17 @@ Then('User should see the update success message', () => {
 
 
 Given('User navigates to the Locations functionality', () => {
-    cy.wait(4000);
+    //cy.wait(4000);
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]')
         .click();
-    cy.wait(1000);
+    //cy.wait(1000);
 
     // click the General Information option
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]/ul/li[2]/a')
         .contains('Locations')
         .should('be.visible')
         .click();
-    cy.wait(3000);
+    //cy.wait(3000);
 });
 
 When('User adds a new location', function(dataTable) {
@@ -63,7 +63,7 @@ When('User adds a new location', function(dataTable) {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/div/button')
         .should('be.visible')
         .click();
-    cy.wait(3000);
+    //cy.wait(3000);
 
     dataTable.hashes().forEach((locationData) => {
         const { 'Name': name, 'City': city, 'State': state, 'Zip Code': zipCode, 'Country': country, 'Phone': phone, 'Fax': fax, 'Address': address } = locationData;
