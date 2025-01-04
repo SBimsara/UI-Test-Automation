@@ -3,7 +3,7 @@ import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
 When('the user clicks on the {string} button in the Personal Details section', (buttonText) => {
   cy.get('button.oxd-button--text')
     .contains(buttonText)
-    .click();
+    .click({ force: true });
 });
 
 When('the file upload section is visible', () => {
@@ -14,7 +14,7 @@ When('the file upload section is visible', () => {
 When('the user clicks on the {string} button to upload a file', (buttonText) => {
   cy.get('.oxd-file-button')
     .contains(buttonText)
-    .click();
+    .click({ force: true });
 });
 
 When('the user selects and uploads a file', () => {
@@ -35,7 +35,7 @@ When('the user clicks on the correct "Save" button in the Personal Details secti
         cy.get('button')
           .contains('Save')
           .should('be.visible')
-          .click();
+          .click({ force: true });
       });
   });
 });

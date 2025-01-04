@@ -23,6 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import 'cypress-downloadfile/lib/downloadFileCommand';
 
 require('cypress-xpath');
 

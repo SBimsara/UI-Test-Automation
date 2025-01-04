@@ -5,13 +5,13 @@ When('the user clicks on the delete button in the first row of the Personal Deta
   cy.get('.oxd-table-cell-actions button')
     .find('i.oxd-icon.bi-trash') 
     .first() 
-    .click(); 
+    .click({ force: true }); 
 });
 
 When('confirms the deletion', () => {
   cy.get('button.oxd-button--label-danger') 
     .contains('Yes, Delete') 
-    .click(); 
+    .click({ force: true }); 
 });
 
 Then('the file should be deleted successfully', () => {

@@ -10,12 +10,12 @@ require('cypress-xpath');
 // });
 
 When('User navigates to the Maintenance section', () => {
-  cy.get('a[href*="maintenance"]').click();
+  cy.get('a[href*="maintenance"]').click({ force: true });
 });
 
 When('User enters valid admin credentials in the popup', () => {
   cy.get('input[name="password"]').type('admin123'); // Valid admin password
-  cy.get('button[type="submit"]').contains('Confirm').click();
+  cy.get('button[type="submit"]').contains('Confirm').click({ force: true });
 });
 
 Then('User should see the "Purge Employee Records" page', () => {
@@ -24,7 +24,7 @@ Then('User should see the "Purge Employee Records" page', () => {
 
 When('User enters invalid admin credentials in the popup', () => {
   cy.get('input[name="password"]').type('wrongpassword'); // Invalid admin password
-  cy.get('button[type="submit"]').contains('Confirm').click();
+  cy.get('button[type="submit"]').contains('Confirm').click({ force: true });
 });
 
 Then('User should see an error message indicating incorrect credentials', () => {

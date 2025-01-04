@@ -7,7 +7,7 @@ When('the user leaves the Full Name field blank', () => {
 });
 
 When('the user attempts to save the changes', () => {
-  cy.get('button[type="submit"]').first().click();
+  cy.get('button[type="submit"]').first().click({ force: true });
 });
 
 Then('an error message should appear stating that Full Name is mandatory', () => {

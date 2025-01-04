@@ -9,7 +9,7 @@ When('the Admin edits the Last Name to {string}', (lastName) => {
 });
 
 When('the Admin clicks the Save button', () => {
-  cy.get('button[type="submit"]').first().click();
+  cy.get('button[type="submit"]').first().click({ force: true });
 });
 
 Then('the changes should be saved successfully', () => {

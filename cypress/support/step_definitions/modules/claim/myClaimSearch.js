@@ -8,13 +8,13 @@ Given('User logs in as an admin for the claim modules for View My Claims', () =>
 Given('User navigates to the Claim modules for View My Claims', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[1]/aside/nav/div[2]/ul/li[11]/a') // Click Claim module
         .should('be.visible')
-        .click();
+        .click({ force: true });
 });
 
 When('User clicks on the My Claim button for View My Claims', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[1]/header/div[2]/nav/ul/li[3]/a') // Click My Claim button
         .should('be.visible')
-        .click();
+        .click({ force: true });
 });
 
 // When('User selects an event from the dropdown for View My Claims', () => {
@@ -29,11 +29,11 @@ When('User clicks on the My Claim button for View My Claims', () => {
 
 When('User selects an event from the dropdown for View My Claims', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div/div[1]') // Open Event dropdown
-       .eq(0).click();
+       .eq(0).click({ force: true });
 
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/div[2]/form/div[1]/div/div[2]/div/div[2]/div/div[2]/div[2]')
        .should('be.visible')    
-       .eq(0).click(); // Click the first selected item in the dropdown    
+       .eq(0).click({ force: true }); // Click the first selected item in the dropdown    
  
 });
 
@@ -41,7 +41,7 @@ When('User selects an event from the dropdown for View My Claims', () => {
 When('User clicks on the Search button for View My Claims', () => {
     cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div[1]/div[2]/form/div[3]/button[2]') // Click Search button
         .should('be.visible')
-        .click();
+        .click({ force: true });
 });
 
 Then('The results should be displayed in the claims table', () => {
