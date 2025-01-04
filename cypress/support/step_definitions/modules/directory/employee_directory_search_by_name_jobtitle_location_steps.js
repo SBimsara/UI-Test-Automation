@@ -83,8 +83,8 @@ When('Click on the Search button', () => {
 });
 
 Then('Display a list of employees matching the name, job title and location', () => {
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').contains(jobTitle);
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').contains(location);
-  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').contains(name);
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').wait(1000).contains(jobTitle);
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').wait(1000).contains(location);
+  cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').wait(1000).contains(name);
 
 });

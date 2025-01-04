@@ -22,5 +22,5 @@ When('user clicks on the Search button to search employees by location', () => {
 });
 
 Then('user should see a list of employees located in Texas R&D in the Employee Directory', () => {
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').contains('Texas R&D');
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').wait(1000).contains('Texas R&D');
 });

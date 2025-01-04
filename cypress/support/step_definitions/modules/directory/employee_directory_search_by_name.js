@@ -33,5 +33,5 @@ When('click on the Search button in-order to search employee by employee name', 
 });
 
 Then('should see a list of employees matching the name entered', () => {
-    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').contains(firstName);
+    cy.xpath('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div/div[2]').wait(1000).contains(firstName);
 });
