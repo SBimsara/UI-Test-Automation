@@ -24,6 +24,7 @@
     "vacancyName3": "Software Engineer",
     "description": "We are looking for a Trainee Software QA Engineer to join our team. The candidate should have experience in Java, Spring, JPA, SQL, Cypress, Cucumber. The candidate should be a quick learner and have good communication skills.",
     "noOfPositions": "5",
-    "status": "Active"
+    "status": "Active",
+    "statusNegative": "Closed"
   }
 }
