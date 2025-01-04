@@ -1,7 +1,13 @@
 import {Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
+let hiringManagerFAndLName; 
+
 Given('User is logged in to the system', () => {
   cy.login();
+  cy.get('p.oxd-userdropdown-name').invoke('text').then((text) => {
+            hiringManagerFAndLName = text.trim(); // Assign the trimmed text to the fullName variable
+            cy.wrap(hiringManagerFAndLName).as('hiringManagerFirstAndLastName');
+        });
 });
 
 Given('User navigates to the recruitment page', () => {

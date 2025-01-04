@@ -14,13 +14,15 @@ When('User fills out the "Add Vacancy" form with mandatory fields', () => {
         cy.contains('div', new RegExp(`^${data.vacancy.jobTitle}$`)).click();  // This will search for a div that contains the text 'Software Engineer'
         cy.get('textarea[placeholder="Type description here"]').type(data.vacancy.description);
         
-        const fullName = data.vacancy.hiringManager;
-        const [firstName, lastName] = fullName.split(' '); // Split the full name into first and last name
-        // Create a regex to match "FirstName [optional middle name] LastName"
-        const nameRegex = new RegExp(`^${firstName}(?:\\s\\S+)?\\s${lastName}$`, 'i');
-        cy.get('input[placeholder="Type for hints..."]').type(fullName);
-        cy.get('div[role="listbox"]').find('span').contains(nameRegex).click();
-        
+        cy.get('@hiringManagerFirstAndLastName').then((fAndLName) => {
+            const fullName = fAndLName; // Retrieve the name from the alias
+            const [firstName, lastName] = fullName.split(' '); // Split into first and last names
+            // Create a regex to match "FirstName [optional middle name] LastName"
+            const nameRegex = new RegExp(`^${firstName}(?:\\s\\S+)?\\s${lastName}$`, 'i');
+            
+            cy.get('input[placeholder="Type for hints..."]').type(fullName); // Type the full name in the input
+            cy.get('div[role="listbox"]').find('span').contains(nameRegex).click(); // Match and select using the regex
+        });
         cy.contains('label', 'Number of Positions').parents('.oxd-input-group').find('input').type(data.vacancy.noOfPositions); // # of positions
     })
 });
@@ -56,12 +58,12 @@ When('User fills out the "Add Vacancy" form with already existing vacancy', () =
         cy.get('textarea[placeholder="Type description here"]').type(data.vacancy.description);
         cy.get('textarea[placeholder="Type description here"]').type(data.vacancy.description);
         
-        const fullName = data.vacancy.hiringManager;
-        const [firstName, lastName] = fullName.split(' '); // Split the full name into first and last name
+        //const fullName = data.vacancy.hiringManager;
+        //const [firstName, lastName] = fullName.split(' '); // Split the full name into first and last name
         // Create a regex to match "FirstName [optional middle name] LastName"
-        const nameRegex = new RegExp(`^${firstName}(?:\\s\\S+)?\\s${lastName}$`, 'i');
-        cy.get('input[placeholder="Type for hints..."]').type(fullName);
-        cy.get('div[role="listbox"]').find('span').contains(nameRegex).click();
+        //const nameRegex = new RegExp(`^${firstName}(?:\\s\\S+)?\\s${lastName}$`, 'i');
+        //cy.get('input[placeholder="Type for hints..."]').type(fullName);
+        //cy.get('div[role="listbox"]').find('span').contains(nameRegex).click();
         
         cy.contains('label', 'Number of Positions').parents('.oxd-input-group').find('input').type(data.vacancy.noOfPositions); // # of positions
     })

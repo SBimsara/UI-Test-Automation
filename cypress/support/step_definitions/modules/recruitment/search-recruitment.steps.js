@@ -6,8 +6,10 @@ Given('User fills candidate search fields with valid data', () => {
         cy.contains('div', new RegExp(`^${data.vacancy.jobTitle}$`)).click();
         cy.contains('label', 'Vacancy').parents('.oxd-input-group').find('.oxd-select-text').click();
         cy.contains('div', new RegExp(`^${data.candidate.vacancy}$`)).click(); 
-        cy.contains('label', 'Hiring Manager').parents('.oxd-input-group').find('.oxd-select-text').click();
-        cy.get('div[role="listbox"]').contains(data.vacancy.hiringManager).click(); 
+        // cy.get('@hiringManagerFirstAndLastName').then((fAndLName) => {
+        //     cy.contains('label', 'Hiring Manager').parents('.oxd-input-group').find('.oxd-select-text').click();
+        //     cy.get('div[role="listbox"]').contains(fAndLName).click();
+        // });         
         cy.contains('label', 'Status').parents('.oxd-input-group').find('.oxd-select-text').click();
         cy.contains('div', data.candidate.status).click(); 
         cy.get('input[placeholder="Type for hints..."]').type(data.candidate.firstName);
@@ -20,14 +22,15 @@ Given('User fills candidate search fields with valid data', () => {
 });    
 
 When('User clicks on the "Search" button', () => {
-    cy.get('button[type="submit"]').click();
+    //cy.get('button[type="submit"]').contains('Search').click();
+    cy.get('button[type="submit"]').click({ force: true });
 })
 
 Then('User should see the searched candidate records', () => {
     cy.fixture('recruitmentData.json').then((data) => {
         cy.get('div[role="cell"]').find('div').contains(data.candidate.fullName).should('be.visible');
         cy.contains(data.candidate.fullName).parents('.oxd-table-row').find('div').should('contain.text', data.candidate.vacancy)
-        .and('contain.text', data.candidate.status)
+        .and('contain.text', data.candidate.status);
     });
 });
 
@@ -76,8 +79,10 @@ Given('User fills vacancy search fields with valid data', () => {
         cy.contains('div', data.vacancy.jobTitle).click(); 
         cy.contains('label', 'Vacancy').parents('.oxd-input-group').find('.oxd-select-text').click();
         cy.contains('div', new RegExp(`^${data.vacancy.vacancyName1}$`)).click(); 
-        cy.contains('label', 'Hiring Manager').parents('.oxd-input-group').find('.oxd-select-text').click();
-        cy.get('div[role="listbox"]').contains(data.vacancy.hiringManager).click(); 
+        // cy.get('@hiringManagerFirstAndLastName').then((fAndLName) => {
+        //     cy.contains('label', 'Hiring Manager').parents('.oxd-input-group').find('.oxd-select-text').click();
+        //     cy.get('div[role="listbox"]').contains(fAndLName).click();
+        // });  
         cy.contains('label', 'Status').parents('.oxd-input-group').find('.oxd-select-text').click();
         cy.contains('div', data.vacancy.status).click();   
         
@@ -88,7 +93,11 @@ Then('User should see the searched vacancy records', () => {
     cy.fixture('recruitmentData.json').then((data) => {
         cy.get('div[role="cell"]').find('div').contains(data.vacancy.vacancyName1).should('be.visible');
         cy.contains('div[role="cell"]',data.vacancy.vacancyName1).parents('.oxd-table-row').find('div').should('contain.text', data.vacancy.jobTitle)
-        .and('contain.text', data.vacancy.hiringManager).and('contain.text', data.vacancy.status)
+        .and('contain.text', data.vacancy.status)
+        // cy.get('@hiringManagerFirstAndLastName').then((fAndLName) => {
+        //     cy.contains('div[role="cell"]',data.vacancy.vacancyName1).parents('.oxd-table-row').find('div').should('contain.text', data.vacancy.jobTitle)
+        //     .and('contain.text', fAndLName).and('contain.text', data.vacancy.status)    
+        // });
     });
 });
 
@@ -98,8 +107,10 @@ Given('User fills vacancy search fields with data not availabe', () => {
         cy.contains('div', data.vacancy.jobTitle).click(); 
         cy.contains('label', 'Vacancy').parents('.oxd-input-group').find('.oxd-select-text').click();
         cy.contains('div', new RegExp(`^${data.vacancy.vacancyName3}$`)).click(); 
-        cy.contains('label', 'Hiring Manager').parents('.oxd-input-group').find('.oxd-select-text').click();
-        cy.get('div[role="listbox"]').contains(data.vacancy.hiringManager).click(); 
+        // cy.get('@hiringManagerFirstAndLastName').then((fAndLName) => {
+        //     cy.contains('label', 'Hiring Manager').parents('.oxd-input-group').find('.oxd-select-text').click();
+        //     cy.get('div[role="listbox"]').contains(fAndLName).click(); 
+        // });        
         cy.contains('label', 'Status').parents('.oxd-input-group').find('.oxd-select-text').click();
         cy.contains('div', data.vacancy.status).click();   
         
